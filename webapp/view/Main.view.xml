@@ -1,30 +1,30 @@
 <mvc:View
-	controllerName="ui5demo.google.maps.controller.Main"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	core:require="{
-		formatter: 'ui5demo/google/maps/model/formatter'
-	}">
+  controllerName="ui5demo.google.maps.controller.Main"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns:control="ui5demo.google.maps.control"
+  core:require="{
+    formatter: 'ui5demo/google/maps/model/formatter'
+  }">
 
-	<Page
-		title="{i18n>appTitle}"
-		id="page">
-		<content>
-			<IllustratedMessage
-				title="{i18n>appTitle}"
-				illustrationType="sapIllus-SuccessHighFive"
-				enableVerticalResponsiveness="true"
-				description="{i18n>appDescription}">
-				<additionalContent>
-					<Button
-						id="helloButton"
-						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press="sayHello" />
-				</additionalContent>
-			</IllustratedMessage>
-		</content>
-	</Page>
+  <Page
+    title="{i18n>appTitle}"
+    id="page">
+    <content>
+      <control:GMap
+        apiKey="ENTER_YOUR_API_KEY_HERE"
+        height="200px"
+        width="100%"
+        lat="49.2993"
+        lng="8.6406"
+        id="map" />
+      <Button
+        id="helloButton"
+          text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
+          press="sayHello" />
+    </content>
+  </Page>
 
 </mvc:View>
